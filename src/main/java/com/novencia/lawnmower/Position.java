@@ -31,4 +31,8 @@ public record Position(Coordinate coordinate, Orientation orientation) {
         return new Position(coordinate.forward(orientation),orientation);
     }
 
+    @Override
+    public String toString() {
+        return coordinate.toString() + " " + orientation.toString();
+    }
 }

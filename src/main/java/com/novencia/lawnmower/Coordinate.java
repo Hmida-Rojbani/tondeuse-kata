@@ -23,6 +23,10 @@ public record Coordinate(int x, int y) {
             case EAST -> new Coordinate(x+1,y);
             case WEST -> new Coordinate(x-1,y);
         };
+    }
 
+    @Override
+    public String toString() {
+        return  x + " " + y;
     }
 }
