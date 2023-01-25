@@ -1,5 +1,6 @@
 package com.novencia.lawnmower;
 
+import com.novencia.exceptions.InstructionIllegalArgumentException;
 import com.novencia.exceptions.LawnMowerInitialPositionException;
 
 /**
@@ -38,7 +39,7 @@ public class LawnMower {
             case 'D' -> rotateToRight();
             case 'G' -> rotateToLeft();
             case 'A' -> advance();
-            default -> throw new IllegalArgumentException("'"+instruction+"' is not an accepted instruction.");
+            default -> throw new InstructionIllegalArgumentException("'"+instruction+"' is not an accepted instruction.");
         }
     }
 

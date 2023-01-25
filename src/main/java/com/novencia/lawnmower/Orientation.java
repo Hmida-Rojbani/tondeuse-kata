@@ -1,4 +1,7 @@
 package com.novencia.lawnmower;
+
+import com.novencia.exceptions.OrientationIllegalArgumentException;
+
 /**
  * Orientation is used to represent the orientation of the lawnmower in a given time
  *
@@ -66,7 +69,7 @@ public enum Orientation {
      * </p>
      * @param alpha the letter representing the orientation
      * @return the orientation according to the given letter
-     * @throws IllegalArgumentException if an accepted parameter is passed
+     * @throws OrientationIllegalArgumentException if an accepted parameter is passed
      *
      */
     public static Orientation get(String alpha) {
@@ -75,7 +78,7 @@ public enum Orientation {
             case "S" -> Orientation.SOUTH;
             case "E" -> Orientation.EAST;
             case "W" -> Orientation.WEST;
-            default -> throw new IllegalArgumentException("\""+alpha +"\" is not accepted as a Orientation");
+            default -> throw new OrientationIllegalArgumentException("\""+alpha +"\" is not accepted as a Orientation");
         };
     }
 
