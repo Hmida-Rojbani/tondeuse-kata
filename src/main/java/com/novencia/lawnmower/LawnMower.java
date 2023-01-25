@@ -1,5 +1,7 @@
 package com.novencia.lawnmower;
 
+import com.novencia.exceptions.LawnMowerInitialPositionException;
+
 /**
  *
  */
@@ -8,6 +10,8 @@ public class LawnMower {
     private Lawn lawn;
 
     public LawnMower(Position position, Lawn lawn) {
+        if (!lawn.isInside(position.coordinate()))
+            throw new LawnMowerInitialPositionException("The provided initial position "+position.coordinate()+" in not inside the lawn "+lawn);
         this.position = position;
         this.lawn = lawn;
     }
