@@ -20,6 +20,7 @@ public class LawnMower {
             case 'D' -> rotateToRight();
             case 'G' -> rotateToLeft();
             case 'A' -> advance();
+            default -> throw new IllegalArgumentException("'"+instruction+"' is not an accepted instruction.");
         }
     }
 
