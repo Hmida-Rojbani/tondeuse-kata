@@ -4,12 +4,14 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class LawnTest {
     private final Coordinate upperRightCorner = new Coordinate(5,5);
     private final Coordinate lowerLeftCorner = new Coordinate(0,0);
-    private final Lawn lawn = new Lawn(upperRightCorner,lowerLeftCorner);
+    private final Lawn lawn = new Lawn(upperRightCorner,lowerLeftCorner,new ArrayList<>());
 
     @Test
     void shouldBeInsideLawn() {

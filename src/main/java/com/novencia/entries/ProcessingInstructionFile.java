@@ -8,6 +8,7 @@ import com.novencia.lawnmower.Position;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class ProcessingInstructionFile {
         String[] coordinates = firstLine.split(" ");
         int coordinateX = Integer.parseInt(coordinates[0]);
         int coordinateY = Integer.parseInt(coordinates[1]);
-        return new Lawn(new Coordinate(coordinateX, coordinateY),new Coordinate(0,0));
+        return new Lawn(new Coordinate(coordinateX, coordinateY),new Coordinate(0,0),new ArrayList<>());
     }
 
     public static Position parsePosition(String positionString) {

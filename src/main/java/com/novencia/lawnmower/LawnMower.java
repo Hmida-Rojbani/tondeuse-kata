@@ -12,8 +12,11 @@ public class LawnMower {
     public LawnMower(Position position, Lawn lawn) {
         if (!lawn.isInside(position.coordinate()))
             throw new LawnMowerInitialPositionException("The provided initial position "+position.coordinate()+" in not inside the lawn "+lawn);
+        if (!lawn.isEmpty(position.coordinate()))
+            throw new LawnMowerInitialPositionException("The provided initial position "+position.coordinate()+" in already occupied with another lawnmower");
         this.position = position;
         this.lawn = lawn;
+        lawn.addLawnMower(this);
     }
 
     /**
@@ -44,7 +47,7 @@ public class LawnMower {
      */
     private void advance() {
         Position nextPosition = position.moveForward();
-        if(lawn.isInside(nextPosition.coordinate()))
+        if(lawn.isInside(nextPosition.coordinate()) && lawn.isEmpty(nextPosition.coordinate()))
             position = nextPosition;
     }
 
@@ -64,5 +67,9 @@ public class LawnMower {
     @Override
     public String toString() {
          return position.toString();
+    }
+
+    public Position getPosition() {
+        return position;
     }
 }
